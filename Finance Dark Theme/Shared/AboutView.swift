@@ -73,16 +73,7 @@ struct SpacedLabelStyle: LabelStyle {
     }
 }
 
-struct TextView: View {
-    var text: String
-    var font: Font
-    
-    var body: some View {
-        Text(text)
-            .foregroundColor(fontColor)
-            .font(font)
-    }
-}
+
 
 struct AvatarView: View {
     var body: some View {
