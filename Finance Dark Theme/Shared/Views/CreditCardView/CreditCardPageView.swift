@@ -8,29 +8,43 @@
 import SwiftUI
 
 struct CreditCardPageView: View {
-    let transactions: [(imageName: String?, payTo: String, month: Int, day: Int, amount: Int, isExpense: Bool)] = [
-            (imageName: nil,
-            payTo: "KFC",
-            month: 3,
-            day: 20,
-            amount: 2000,
-            isExpense: true),
+    let transactions: [(imageName: String?, payTo: String, month: Int, day: Int, amount: Int, isExpense: Bool, isSystemIcon: Bool)] = [
             (
                 imageName: "bolt",
+                payTo: "KFC",
+                month: 3,
+                day: 20,
+                amount: 2000,
+                isExpense: true,
+                isSystemIcon: true
+            ),
+            (
+                imageName: paypalIcon,
                 payTo: "Electric",
                 month: 6,
                 day: 28,
                 amount: 2000,
-                isExpense: false
+                isExpense: false,
+                isSystemIcon: false
             ),
             (
-                imageName: "wrench",
+                imageName: wrenchIcon,
                 payTo: "Car Repair",
                 month: 8,
                 day: 12,
                 amount: 232010,
-                isExpense: true
-            )
+                isExpense: true,
+                isSystemIcon: false
+            ),
+            (
+                imageName: "dollarsign.circle",
+                payTo: "Win Prize",
+                month: 8,
+                day: 12,
+                amount: 232010,
+                isExpense: false,
+                isSystemIcon: true
+            ),
     ]
     
     let numActiveCards: Int = 3
@@ -66,7 +80,8 @@ struct CreditCardPageView: View {
                                 month: transactions[i].month,
                                 day: transactions[i].day,
                                 amount: transactions[i].amount,
-                                isExpense: transactions[i].isExpense
+                                isExpense: transactions[i].isExpense,
+                                isSystemIcon: transactions[i].isSystemIcon
                             )
                             
                         }

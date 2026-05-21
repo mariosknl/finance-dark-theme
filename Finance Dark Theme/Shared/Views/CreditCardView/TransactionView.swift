@@ -14,13 +14,23 @@ struct TransactionView: View {
     let day: Int
     let amount: Int
     let isExpense: Bool
+    var isSystemIcon: Bool = false
     
     var body: some View {
         HStack {
             if let imageName = imageName {
-                Image(systemName: imageName)
-                    .foregroundColor(fontColor)
-                    .font(.title.bold())
+                if !isSystemIcon {
+                    Image(imageName)
+                        .resizable()
+                        .renderingMode(.template)
+                        .scaledToFit()
+                        .foregroundColor(fontColor)
+                        .frame(width: 30, height: 30)
+                } else {
+                    Image(systemName: imageName)
+                        .foregroundColor(fontColor)
+                        .font(.title.bold())
+                }
             }
             VStack(alignment: .leading, spacing: 7) {
                 TextView(text:payTo, font: .title)
@@ -50,11 +60,12 @@ struct TransactionView: View {
 
 #Preview {
     TransactionView(
-        imageName: nil,
-        payTo: "Electric",
+        imageName: hamburgerIcon,
+        payTo: "bolt",
         month: 3,
         day: 20,
         amount: 2000,
-        isExpense: true
+        isExpense: true,
+        isSystemIcon: true
     )
 }
