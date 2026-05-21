@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+struct TextViewGeneral: View {
+    var text: String
+    var font: Font
+    var fontWeight: Font.Weight
+    let color: Color
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(color)
+            .font(font)
+            .fontWeight(fontWeight)
+    }
+}
+
 struct TextView: View {
     var text: String
     var font: Font
